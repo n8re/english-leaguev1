@@ -1001,6 +1001,7 @@ function renderMatches(filter) {
       : `<div class="empty-state">لا توجد مباريات بهذا التصنيف</div>`;
 }
 
+
 function createMatchCard(match, isFeatured = false) {
   const homeTeam = getTeam(match.homeTeamId);
   const awayTeam = getTeam(match.awayTeamId);
@@ -1281,14 +1282,18 @@ function createBracketMiniMatch(match) {
     <div class="mini-bracket-card" onclick="${match.status === "finished" ? `openMatchModal('${match.id}')` : ""}">
       <div class="mini-teams">
         <div class="mini-team ${homeWinnerClass}">
-          <div class="mini-logo">${getTeamShortName(homeName)}</div>
-          <span>${homeName}</span>
-        </div>
+  ${homeTeam
+    ? createTeamLogo(homeTeam, "mini-logo")
+    : '<div class="mini-logo">?</div>'}
+  <span>${homeName}</span>
+</div>
 
-        <div class="mini-team ${awayWinnerClass}">
-          <div class="mini-logo">${getTeamShortName(awayName)}</div>
-          <span>${awayName}</span>
-        </div>
+<div class="mini-team ${awayWinnerClass}">
+  ${awayTeam
+    ? createTeamLogo(awayTeam, "mini-logo")
+    : '<div class="mini-logo">?</div>'}
+  <span>${awayName}</span>
+</div>
       </div>
 
       <div class="mini-score">${score}</div>
@@ -1318,19 +1323,23 @@ function createFinalCard(match, champion) {
 
       <div class="final-teams">
         <div class="final-team ${homeWinnerClass}">
-          <div class="team-logo-placeholder">${getTeamShortName(homeName)}</div>
-          <span>${homeName}</span>
-        </div>
+  ${homeTeam
+    ? createTeamLogo(homeTeam, "team-logo-placeholder")
+    : '<div class="team-logo-placeholder">?</div>'}
+  <span>${homeName}</span>
+</div>
 
         <div class="final-score">
           <small>النتيجة</small>
           <strong>${score}</strong>
         </div>
 
-        <div class="final-team ${awayWinnerClass}">
-          <div class="team-logo-placeholder">${getTeamShortName(awayName)}</div>
-          <span>${awayName}</span>
-        </div>
+       <div class="final-team ${awayWinnerClass}">
+  ${awayTeam
+    ? createTeamLogo(awayTeam, "team-logo-placeholder")
+    : '<div class="team-logo-placeholder">?</div>'}
+  <span>${awayName}</span>
+</div>
       </div>
 
       <p class="final-note">
