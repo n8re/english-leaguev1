@@ -4842,3 +4842,67 @@ body:not(.dark-mode) .standing-team-info span {
   object-fit: contain;
   display: block;
 }
+
+.team-logo,
+.match-team-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6px;
+}
+
+.team-logo img,
+.match-team-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Match Logos */
+
+.mini-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(0,255,135,0.22);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.mini-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.team-logo-placeholder {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 5px;
+  flex-shrink: 0;
+}
+
+.team-logo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

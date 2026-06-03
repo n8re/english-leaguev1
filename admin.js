@@ -666,17 +666,21 @@ function loadPlayersAdminList() {
 
       adminPlayersCache.sort((a, b) => {
         const teamCompare = String(a.teamName || "").localeCompare(
-          String(b.teamName || "")
-        );
+  String(b.teamName || ""),
+  "ar"
+);
 
         if (teamCompare !== 0) return teamCompare;
 
-        return String(a.name || "").localeCompare(String(b.name || ""), "ar");
+        return String(a.name || "").localeCompare(
+  String(b.name || ""),
+  "ar"
+);
       });
 
       renderResultPlayerOptions();
-renderMotmPlayerOptions();
-renderLineupStarterRows();
+      renderMotmPlayerOptions();
+      renderLineupStarterRows();
 
       if (countBadge) {
         countBadge.textContent = `${adminPlayersCache.length} لاعب`;
@@ -2114,10 +2118,10 @@ function renderPlayersAdminList() {
 
   if (playerSearchText) {
     filteredPlayers = filteredPlayers.filter((player) =>
-      String(player.name || "").toLowerCase().includes(playerSearchText) ||
-      String(player.teamName || "").toLowerCase().includes(playerSearchText) ||
-      String(player.position || "").toLowerCase().includes(playerSearchText)
-    );
+  String(player.name || "").toLowerCase().includes(playerSearchText) ||
+  String(player.teamName || "").toLowerCase().includes(playerSearchText) ||
+  String(player.position || "").toLowerCase().includes(playerSearchText)
+);
   }
 
   if (playerTeamFilterValue !== "all") {
@@ -2380,4 +2384,8 @@ function getAutoTeamsForBracketSlot(slot) {
   };
 
   return map[slot] || [null, null];
+}
+
+function renderResultPlayerOptions() {
+  // سيتم تطويرها لاحقاً
 }
